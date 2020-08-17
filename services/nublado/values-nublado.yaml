@@ -4,7 +4,7 @@ nublado:
   oauth_provider: 'jwt'
 
   hub:
-    image: 'lsstsqre/sciplat-hub:latest'
+    image: 'lsstsqre/sciplat-hub:exp_0.30.0'
 
   wf:
     no_verify_signature: 'true'
@@ -82,13 +82,68 @@ nublado:
       }
     ]
 
-  signing_certificate: |
-    -----BEGIN PUBLIC KEY-----
-    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ViEK+a2lQFSTFlO1jn+
-    ta0NsiHh40uIRKAWvXd8eFJjZYK2DhrH9biLB9AkUtyzvcywpYl+/lquwUQBz04Z
-    NJC5ykR1YBzSKicpVvHF8b3I/NNT/aqyOEEkhG6I1/ZKlz03lyOYyKdzNvEoa4yU
-    A2WUdysSsZYXIIo4jh2M1rfsS+ozcDSwWkY1EyGFWsp2fUkDS4qOTTbhxx/TiERk
-    YqT4NRALhvwJA3zJJZXGd+zGl+4rxTl+Xbx6YVHb27ArcQsGK5Ay2HkOqGDkBEZb
-    gYykuPnl3gj/sS0aoxsc4J1mZoU0Ct4qfqaLahUW9kVwnS3vsH+rppdZ+UnK4Rh6
-    xQIDAQAB
-    -----END PUBLIC KEY-----
+jupyterhub_config: |
+  '''Runtime configuration for JupyterHub in the LSST environment.
+  '''
+
+  import logging
+  from eliot.stdlib import EliotHandler
+  from rubin_jupyter_utils.config import RubinConfig
+  from rubin_jupyter_utils.hub.authenticator import RubinWebTokenAuthenticator
+  from rubin_jupyter_utils.hub.scanrepo import prime_repo_cache
+  from rubin_jupyter_utils.hub.spawner import RubinSpawner
+  from rubin_jupyter_utils.hub.helpers import make_logger
+
+  # get_config() only works in the Hub configuration environment
+  c = get_config()
+
+  rc = RubinConfig()
+
+  # Set up logging
+  clname = 'rubin_jupyter_utils.hub'
+  rhu_logger = make_logger(name=clname)
+  if rc.debug:
+      jhu_logger.setLevel(logging.DEBUG)
+      jhu_logger.debug("Enabling '{}' debug-level logging.".format(clname))
+      jhu_logger.warning("If there is no prior debug log something is wrong.")
+
+  c.Application.log_format = lc.log_format
+  c.Application.log_datefmt = lc.log_datefmt
+  c.Application.log_level = lc.log_level
+  c.Application.log = make_logger(name='JupyterHub')
+  c.Application.log.handlers = [EliotHandler()]
+
+  # Set authenticator and spawner classes
+  c.JupyterHub.spawner_class = RubinSpawner
+  c.JupyterHub.authenticator_class = RubinWebTokenAuthenticator
+
+  # Prime the repo cache
+  prime_repo_cache(rc)
+
+  # Don't try to cleanup servers on exit - since in general for k8s, we want
+  # the hub to be able to restart without losing user containers
+  c.JupyterHub.cleanup_servers = False
+
+  # Set Session DB URL if we have one
+  db_url = rc.session_db_url
+  if db_url:
+      c.JupyterHub.db_url = db_url
+  # Allow style overrides
+  c.JupyterHub.template_paths = ["/opt/lsst/software/jupyterhub/templates/"]
+
+  # Set Hub networking/routing parameters
+  hub_route = rc.hub_route
+  if hub_route != '/':
+      c.JupyterHub.base_url = rc.hub_route
+
+  # Set the Hub URLs
+  c.JupyterHub.bind_url = rc.bind_url
+  c.JupyterHub.hub_bind_url = rc.hub_bind_url
+  c.JupyterHub.hub_connect_url = rc.hub_connect_url
+
+  # External proxy
+  c.ConfigurableHTTPProxy.should_start = False
+  c.ConfigurableHTTPProxy.api_url = rc.proxy_api_url
+
+  # We want the Lab to be the default interface
+  c.Spawner.default_url = '/lab'
