@@ -103,13 +103,13 @@ nublado:
     clname = 'rubin_jupyter_utils.hub'
     rhu_logger = make_logger(name=clname)
     if rc.debug:
-        jhu_logger.setLevel(logging.DEBUG)
-        jhu_logger.debug("Enabling '{}' debug-level logging.".format(clname))
-        jhu_logger.warning("If there is no prior debug log something is wrong.")
+        rhu_logger.setLevel(logging.DEBUG)
+        rhu_logger.debug("Enabling '{}' debug-level logging.".format(clname))
+        rhu_logger.warning("If no prior debug log, something is wrong.")
 
-    c.Application.log_format = lc.log_format
-    c.Application.log_datefmt = lc.log_datefmt
-    c.Application.log_level = lc.log_level
+    c.Application.log_format = rc.log_format
+    c.Application.log_datefmt = rc.log_datefmt
+    c.Application.log_level = rc.log_level
     c.Application.log = make_logger(name='JupyterHub')
     c.Application.log.handlers = [EliotHandler()]
 
