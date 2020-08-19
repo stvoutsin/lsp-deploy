@@ -4,11 +4,13 @@ nublado:
   oauth_provider: 'jwt'
 
   hub:
-    image: 'lsstsqre/sciplat-hub:exp_0.30.0'
+    image: 'lsstsqre/sciplat-hub:exp_0.30.1'
 
   wf:
-    no_verify_signature: 'true'
-    no_verify_audience: 'true'
+    image: 'lsstsqre/wfdispatcher:exp_0.4.0.0'
+
+  prepuller:
+    image: 'lsstsqre/prepuller:exp_0.8.0'
 
   lab:
     restrict_nodes: 'true'
