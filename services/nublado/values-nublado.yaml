@@ -93,16 +93,14 @@ nublado:
     try:
         from eliot.stdlib import EliotHandler
         from rubin_jupyter_utils.config import RubinConfig
-        from rubin_jupyter_utils.hub.authenticator import (
-            RubinWebTokenAuthenticator)
+        from rubin_jupyter_utils.hub.authenticator import RubinWebTokenAuthenticator
         from rubin_jupyter_utils.hub.scanrepo import prime_repo_cache
         from rubin_jupyter_utils.hub.spawner import RubinSpawner
         from rubin_jupyter_utils.helpers import make_logger
     except (ModuleNotFoundError, ImportError):
         from eliot.stdlib import EliotHandler
         from jupyterhubutils import LSSTConfig as RubinConfig
-        from jupyterhubutils.authenticator import (
-            LSSTJWTAuthenticator) as RubinWebTokenAuthenticator
+        from jupyterhubutils.authenticator import LSSTJWTAuthenticator as RubinAuthenticator
         from jupyterhubutils.scanrepo import prime_repo_cache
         from jupyterhubutils.spawner import LSSTSpawner as RubinSpawner
         from jupyterhubutils.utils import make_logger
