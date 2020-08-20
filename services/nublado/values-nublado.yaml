@@ -89,12 +89,24 @@ nublado:
     '''
 
     import logging
-    from eliot.stdlib import EliotHandler
-    from rubin_jupyter_utils.config import RubinConfig
-    from rubin_jupyter_utils.hub.authenticator import RubinWebTokenAuthenticator
-    from rubin_jupyter_utils.hub.scanrepo import prime_repo_cache
-    from rubin_jupyter_utils.hub.spawner import RubinSpawner
-    from rubin_jupyter_utils.helpers import make_logger
+    clname = 'rubin_jupyter_utils.hub'
+    try:
+        from eliot.stdlib import EliotHandler
+        from rubin_jupyter_utils.config import RubinConfig
+        from rubin_jupyter_utils.hub.authenticator import (
+            RubinWebTokenAuthenticator)
+        from rubin_jupyter_utils.hub.scanrepo import prime_repo_cache
+        from rubin_jupyter_utils.hub.spawner import RubinSpawner
+        from rubin_jupyter_utils.helpers import make_logger
+    except (ModuleNotFoundError, ImportError):
+        from eliot.stdlib import EliotHandler
+        from jupyterhubutils import LSSTConfig as RubinConfig
+        from jupyterhubutils.authenticator import (
+            LSSTJWTAuthenticator) as RubinWebTokenAuthenticator
+        from jupyterhubutils.scanrepo import prime_repo_cache
+        from jupyterhubutils.spawner import LSSTSpawner as RubinSpawner
+        from jupyterhubutils.utils import make_logger
+        clname = 'jupyterhubutils'
 
     # get_config() only works in the Hub configuration environment
     c = get_config()
@@ -102,7 +114,7 @@ nublado:
     rc = RubinConfig()
 
     # Set up logging
-    clname = 'rubin_jupyter_utils.hub'
+
     rhu_logger = make_logger(name=clname)
     if rc.debug:
         rhu_logger.setLevel(logging.DEBUG)
