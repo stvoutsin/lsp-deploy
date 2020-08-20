@@ -6,12 +6,6 @@ nublado:
   hub:
     image: 'lsstsqre/sciplat-hub:latest'
 
-  wf:
-    image: 'lsstsqre/wfdispatcher:latest'
-
-  prepuller:
-    image: 'lsstsqre/prepuller:latest'
-
   lab:
     restrict_nodes: 'true'
     image:
