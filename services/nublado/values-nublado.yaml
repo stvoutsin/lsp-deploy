@@ -4,7 +4,7 @@ nublado:
   oauth_provider: 'jwt'
 
   hub:
-    image: 'lsstsqre/sciplat-hub:exp_0.30.2'
+    image: 'lsstsqre/sciplat-hub:latest'
 
   wf:
     image: 'lsstsqre/wfdispatcher:latest'
