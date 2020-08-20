@@ -94,7 +94,7 @@ nublado:
     except (ModuleNotFoundError, ImportError):
         from eliot.stdlib import EliotHandler
         from jupyterhubutils import LSSTConfig as RubinConfig
-        from jupyterhubutils.authenticator import LSSTJWTAuthenticator as RubinAuthenticator
+        from jupyterhubutils.authenticator import LSSTJWTAuthenticator as RubinWebTokenAuthenticator
         from jupyterhubutils.scanrepo import prime_repo_cache
         from jupyterhubutils.spawner import LSSTSpawner as RubinSpawner
         from jupyterhubutils.utils import make_logger
