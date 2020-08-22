@@ -1,7 +1,6 @@
 firefly:
   image:
-    repository: "ipac/firefly"
-    tag: "release-2020.2.0"
+    tag: "rc-2.0"
 
   ingress:
     annotations:
