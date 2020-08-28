@@ -4,7 +4,7 @@ nublado:
   oauth_provider: 'jwt'
 
   hub:
-    image: 'lsstsqre/sciplat-hub:latest'
+    image: 'lsstsqre/cbanek-exp-hub:latest'
 
   wf:
     no_verify_signature: 'true'
@@ -12,9 +12,12 @@ nublado:
 
   lab:
     restrict_nodes: 'true'
+
     image:
-      experimentals: 2
-      dailies: 2
+      #repo_host: 'ts-dockerhub.lsst.org'
+      #repo_owner: 'test'
+      #experimentals: 2
+      #dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
 
     resources:
