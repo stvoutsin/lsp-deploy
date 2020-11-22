@@ -1,0 +1,15 @@
+cadc-tap:
+  tag: "1.0.14"
+  use_mock_qserv: true
+
+  host: "lspdev.ddns.net"
+
+  secrets:
+    enabled: false
+
+  vault_secrets:
+    enabled: true
+    path: 'secret/k8s_operator/lspdev.ddns.net/tap'
+
+  gcs_bucket: 'lspdev.ddns.net'
+  gcs_bucket_url: 'http://lspdev.ddns.net'
