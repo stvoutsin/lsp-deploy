@@ -11,4 +11,4 @@ vault-secrets-operator:
           name: vault-secrets-operator
           key: VAULT_TOKEN_LEASE_DURATION
   vault:
-    address: "https://lspdev.ddns.net"
+    address: "http://lspdev.ddns.net"
