@@ -2,7 +2,7 @@ gafaelfawr:
   host: lspdev.ddns.net
   ingress:
     host: lspdev.ddns.net
-  vault_secrets_path: "secret/k8s_operator/lspdev.ddns.net/gafaelfawr"
+  vault_secrets_path: "secret/k8s_operator/roe/gafaelfawr"
 
   # Session length and token expiration (in minutes).
   issuer:

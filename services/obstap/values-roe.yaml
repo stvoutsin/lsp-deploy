@@ -7,7 +7,7 @@ cadc-tap-postgres:
 
   vault_secrets:
     enabled: true
-    path: 'secret/k8s_operator/lspdev.ddns.net/tap'
+    path: 'secret/k8s_operator/roe/tap'
 
   gcs_bucket: 'lspdev.ddns.net'
   gcs_bucket_url: 'http://lspdev.ddns.net'

@@ -45,7 +45,7 @@ nublado:
 
   vault_secrets:
     enabled: true
-    path: secret/k8s_operator/lspdev.ddns.net/nublado
+    path: secret/k8s_operator/roe/nublado
 
   proxy:
     ingress:

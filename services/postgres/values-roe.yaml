@@ -1,6 +1,6 @@
 postgres:
   vault_secrets:
-    path: 'secret/k8s_operator/lspdev.ddns.net/postgres'
+    path: 'secret/k8s_operator/roe/postgres'
   debug: 'true'
   jupyterhub_db:
     user: 'jovyan'
