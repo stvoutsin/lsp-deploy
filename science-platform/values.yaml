@@ -3,6 +3,9 @@ argo:
   revision: HEAD
 argocd:
   revision: HEAD
+cachemachine:
+  enabled: false
+  revision: HEAD
 cert_issuer:
   enabled: false
   revision: HEAD
@@ -37,6 +40,9 @@ nginx_ingress:
   enabled: false
   revision: HEAD
 nublado:
+  enabled: false
+  revision: HEAD
+nublado2:
   enabled: false
   revision: HEAD
 obstap:
