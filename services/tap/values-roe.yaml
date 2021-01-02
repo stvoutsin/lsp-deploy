@@ -2,7 +2,7 @@ cadc-tap:
   tag: "1.0.14"
   use_mock_qserv: true
 
-  host: "lspdev.ddns.net"
+  host: "rspdev.ddns.net"
 
   secrets:
     enabled: false
@@ -11,5 +11,5 @@ cadc-tap:
     enabled: true
     path: 'secret/k8s_operator/roe/tap'
 
-  gcs_bucket: 'lspdev.ddns.net'
-  gcs_bucket_url: 'http://lspdev.ddns.net'
+  gcs_bucket: 'rspdev.ddns.net'
+  gcs_bucket_url: 'http://rspdev.ddns.net'

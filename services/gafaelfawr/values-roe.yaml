@@ -1,7 +1,7 @@
 gafaelfawr:
-  host: lspdev.ddns.net
+  host: rspdev.ddns.net
   ingress:
-    host: lspdev.ddns.net
+    host: rspdev.ddns.net
   vault_secrets_path: "secret/k8s_operator/roe/gafaelfawr"
 
   # Session length and token expiration (in minutes).
@@ -11,6 +11,6 @@ gafaelfawr:
   # Use CILogon authentication.
   cilogon:
     client_id: "cilogon:/client_id/74e865cd71a3a327096d36081166b739"
-    redirect_url: "https://lspdev.ddns.net:31337/login"
+    redirect_url: "https://rspdev.ddns.net:31337/login"
     login_params:
       skin: "LSST"

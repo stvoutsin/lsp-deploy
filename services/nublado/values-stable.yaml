@@ -109,7 +109,7 @@ nublado:
 
   resourcemap: |
     [
-      { "group": "lsst_int_lspdev",
+      { "group": "lsst_int_rspdev",
         "resources": {
             "size_index": 3,
             "mem_quota": 626688,

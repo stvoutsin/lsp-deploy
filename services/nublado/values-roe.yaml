@@ -1,5 +1,5 @@
 nublado:
-  fqdn: lspdev.ddns.net
+  fqdn: rspdev.ddns.net
 
   oauth_provider: 'jwt'
 
@@ -11,7 +11,7 @@ nublado:
       annotations:
         nginx.ingress.kubernetes.io/auth-method: GET
         nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Token
-        nginx.ingress.kubernetes.io/auth-signin: "https://lspdev.ddns.net:31337/login"
+        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net:31337/login"
         nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:notebook"
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header X-Forwarded-Proto https;
@@ -38,7 +38,7 @@ nublado:
   routes:
     soda: '/api/image/soda'
     external:
-      instance: 'https://lspdev.ddns.net'
+      instance: 'https://rspdev.ddns.net'
 
   dask:
     restrict_nodes: 'true'
@@ -52,7 +52,7 @@ nublado:
       annotations:
         nginx.ingress.kubernetes.io/auth-request-redirect: $request_uri
         nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Token
-        nginx.ingress.kubernetes.io/auth-signin: "https://lspdev.ddns.net:31337/login"
+        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net:31337/login"
         nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:notebook"
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header X-Forwarded-Proto https;
@@ -61,11 +61,11 @@ nublado:
           auth_request_set $auth_token $upstream_http_x_auth_request_token;
           proxy_set_header X-Portal-Authorization "Bearer $auth_token";
           error_page 403 = "/auth/forbidden?scope=exec:notebook";
-      host: lspdev.ddns.net
+      host: rspdev.ddns.net
       tls:
         cluster_issuer: cert-issuer-letsencrypt-dns
         secret: nublado-tls-secret
-        tls_host: lspdev.ddns.net
+        tls_host: rspdev.ddns.net
 
   mountpoints: |
     [
