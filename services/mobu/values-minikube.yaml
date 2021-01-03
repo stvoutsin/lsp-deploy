@@ -1,8 +1,13 @@
 mobu:
+  pull_secret: 'pull-secret'
   gafaelfawr_secrets_path: "secret/k8s_operator/minikube.lsst.codes/gafaelfawr"
   mobu_secrets_path: "secret/k8s_operator/minikube.lsst.codes/mobu"
-  environment_url: "https://minikube.lsst.codes:31337"
+  environment_url: "https://minikube.lsst.codes"
   host: "minikube.lsst.codes"
 
   image:
     tag: master
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/minikube.lsst.codes/pull-secret

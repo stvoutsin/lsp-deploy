@@ -1,4 +1,5 @@
 nublado:
+  pull_secret: 'pull-secret'
   fqdn: lsst-nts-k8s.ncsa.illinois.edu
 
   oauth_provider: 'jwt'
@@ -145,3 +146,7 @@ nublado:
     sOMj6Dn3RZHeDjl3hObUK8cCsAPYJJekFYwE383+ahr5i+IvzSDwM8Cx1YA/UJB2
     6QIDAQAB
     -----END PUBLIC KEY-----
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/lsst-nts-k8s.ncsa.illinois.edu/pull-secret

@@ -1,10 +1,10 @@
 exposurelog:
+  pull_secret: pull-secret
 
-  nfs_path_1: /offline/teststand
-
-  nfs_server_1: lsst-nfs.ncsa.illinois.edu
-
-  butler_uri_1: /volume_1/NCSA_comcam/gen3repo
+  site_id: nts
+  nfs_path_1: /data/lsstdata  # Mounted as /volume_1
+  nfs_server_1: lsst-l1-cl-arctl.ncsa.illinois.edu  # The OODS machine
+  butler_uri_1: /volume_1/NTS/comcam/oods/gen3butler/repo
 
   ingress:
     enabled: true
@@ -21,3 +21,7 @@ exposurelog:
     #      - chart-example.local
 
 vault_path: secret/k8s_operator/lsst-nts-k8s.ncsa.illinois.edu/postgres
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/lsst-nts-k8s.ncsa.illinois.edu/pull-secret

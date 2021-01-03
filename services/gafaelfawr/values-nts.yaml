@@ -1,4 +1,5 @@
 gafaelfawr:
+  pull_secret: 'pull-secret'
   host: lsst-nts-k8s.ncsa.illinois.edu
   ingress:
     host: lsst-nts-k8s.ncsa.illinois.edu
@@ -21,3 +22,7 @@ gafaelfawr:
     client_id: "cilogon:/client_id/5d4d96afd3f1acf896a2b5a7a2e94277"
     login_params:
       skin: "LSST"
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/lsst-nts-k8s.ncsa.illinois.edu/pull-secret

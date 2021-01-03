@@ -1,4 +1,5 @@
 nublado:
+  pull_secret: 'pull-secret'
   fqdn: kueyen-lsp.lsst.codes
   debug: 'true'
   oauth_provider: 'jwt'
@@ -132,3 +133,7 @@ nublado:
     s9JZf5xrYISSTv+6rkmugsCBw35G2vfvpDbY22zlrJyDPsul5NBi5O4mMzY8jLTk
     rwIDAQAB
     -----END PUBLIC KEY-----
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/kueyen-lsp.lsst.codes/pull-secret

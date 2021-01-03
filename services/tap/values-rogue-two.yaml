@@ -1,4 +1,5 @@
 cadc-tap:
+  pull_secret: 'pull-secret'
   tag: "1.0.15"
   use_mock_qserv: true
 
@@ -13,3 +14,7 @@ cadc-tap:
 
   gcs_bucket: 'async-results.lsst.codes'
   gcs_bucket_url: 'http://async-results.lsst.codes'
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/rogue-two.lsst.codes/pull-secret

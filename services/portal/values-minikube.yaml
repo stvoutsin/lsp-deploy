@@ -1,4 +1,5 @@
 firefly:
+  pull_secret: 'pull-secret'
   image:
     tag: "1.1.1"
 
@@ -7,7 +8,7 @@ firefly:
     annotations:
       nginx.ingress.kubernetes.io/auth-method: GET
       nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Uid, X-Auth-Request-Token
-      nginx.ingress.kubernetes.io/auth-signin: "https://minikube.lsst.codes:31337/login"
+      nginx.ingress.kubernetes.io/auth-signin: "https://minikube.lsst.codes/login"
       nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:portal"
       nginx.ingress.kubernetes.io/configuration-snippet: |
         proxy_set_header X-Original-URI $request_uri;
@@ -28,3 +29,7 @@ firefly:
     resources:
       limits:
         memory: 20Mi
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/minikube.lsst.codes/pull-secret

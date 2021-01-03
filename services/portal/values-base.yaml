@@ -1,4 +1,5 @@
 firefly:
+  pull_secret: 'pull-secret'
   image:
     tag: "1.1.1"
 
@@ -28,3 +29,7 @@ firefly:
     resources:
       limits:
         memory: 20Mi
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/base-lsp.lsst.codes/pull-secret

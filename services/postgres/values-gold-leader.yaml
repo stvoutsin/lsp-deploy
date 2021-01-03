@@ -1,4 +1,5 @@
 postgres:
+  pull_secret: 'pull-secret'
   vault_secrets:
     path: 'secret/k8s_operator/gold-leader.lsst.codes/postgres'
   debug: 'true'
@@ -7,3 +8,7 @@ postgres:
     db: 'jupyterhub'
   image:
     tag: '0.0.2'
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/gold-leader.lsst.codes/pull-secret
