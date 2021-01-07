@@ -21,8 +21,8 @@ spec:
   project: default
   source:
     path: services/nublado
-    repoURL: https://github.com/stvoutsin/lsp-deploy.git
-    targetRevision: {{ .Values.nublado.revision }}
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: {{ .Values.revision }}
     helm:
       valueFiles:
         - values-{{ .Values.environment }}.yaml
