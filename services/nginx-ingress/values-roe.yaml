@@ -5,7 +5,7 @@ nginx-ingress:
       large-client-header-buffers: "4 64k"
       proxy-body-size: "100m"
       proxy-buffer-size: "64k"
-      ssl-redirect: "true"
+      ssl-redirect: "false"
       use-forwarded-headers: "true"
     service:
       type: NodePort
