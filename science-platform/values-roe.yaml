@@ -3,9 +3,9 @@ environment: roe
 argo:
   enabled: true
 cert_issuer:
-  enabled: true
+  enabled: false
 cert_manager:
-  enabled: true
+  enabled: false
 chronograf:
   enabled: false
 exposurelog:
