@@ -3,9 +3,9 @@ environment: roe
 argo:
   enabled: true
 cert_issuer:
-  enabled: false
+  enabled: true
 cert_manager:
-  enabled: false
+  enabled: true
 chronograf:
   enabled: false
 exposurelog:
@@ -38,3 +38,6 @@ tap:
   enabled: true
 vault_secrets_operator:
   enabled: true
+
+repoURL: https://github.com/stvoutsin/lsp-deploy.git
+revision: HEAD
