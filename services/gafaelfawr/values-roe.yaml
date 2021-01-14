@@ -1,4 +1,5 @@
 gafaelfawr:
+  pull_secret: 'pull-secret'
   host: rspdev.ddns.net
   ingress:
     host: rspdev.ddns.net
@@ -11,6 +12,10 @@ gafaelfawr:
   # Use CILogon authentication.
   cilogon:
     client_id: "cilogon:/client_id/74e865cd71a3a327096d36081166b739"
-    redirect_url: "https://rspdev.ddns.net:31337/login"
+    redirect_url: "https://rspdev.ddns.net/login"
     login_params:
       skin: "LSST"
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/roe/pull-secret
