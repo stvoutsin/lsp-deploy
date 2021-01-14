@@ -1,4 +1,5 @@
 postgres:
+  pull_secret: 'pull-secret'
   vault_secrets:
     path: 'secret/k8s_operator/roe/postgres'
   debug: 'true'
@@ -12,5 +13,8 @@ postgres:
     tag: '0.0.2'
   postgres_storage_class: 'standard'
 
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/roe/pull-secret
 
 
