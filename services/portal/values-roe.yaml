@@ -1,4 +1,5 @@
 firefly:
+  pull_secret: 'pull-secret'
   image:
     tag: "1.1.1"
 
@@ -7,14 +8,13 @@ firefly:
     annotations:
       nginx.ingress.kubernetes.io/auth-method: GET
       nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Uid, X-Auth-Request-Token
-      nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net:31337/login"
+      nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net/login"
       nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:portal"
       nginx.ingress.kubernetes.io/configuration-snippet: |
         proxy_set_header X-Original-URI $request_uri;
         proxy_set_header X-Forwarded-Proto https;
         proxy_set_header X-Forwarded-Port 443;
         proxy_set_header X-Forwarded-Path /portal/app;
-
   max_jvm_size: "7G"
 
   resources:
@@ -28,3 +28,7 @@ firefly:
     resources:
       limits:
         memory: 20Mi
+
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/roe/pull-secret
