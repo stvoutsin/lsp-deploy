@@ -2,6 +2,8 @@ environment: roe
 
 argo:
   enabled: true
+cachemachine:
+  enabled: true
 cert_issuer:
   enabled: true
 cert_manager:
@@ -26,11 +28,15 @@ ingress_nginx:
   enabled: true
 nublado:
   enabled: true
+nublado2:
+  enabled: true
 obstap:
   enabled: true
 portal:
   enabled: true
 postgres:
+  enabled: true
+rancher_external_ip_webhook:
   enabled: true
 squash_api:
   enabled: false
@@ -38,6 +44,3 @@ tap:
   enabled: true
 vault_secrets_operator:
   enabled: true
-
-repoURL: https://github.com/stvoutsin/lsp-deploy.git
-revision: HEAD

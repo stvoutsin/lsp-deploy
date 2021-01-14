@@ -13,6 +13,7 @@ nublado:
       experimentals: 2
       dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
+      repo_username: 'sqrereadonly'
 
     resources:
       nodejs_max_mem: '6144'
@@ -44,6 +45,7 @@ nublado:
           auth_request_set $auth_token $upstream_http_x_auth_request_token;
           proxy_set_header X-Portal-Authorization "Bearer $auth_token";
           error_page 403 = "/auth/forbidden?scope=exec:notebook";
+
   prepuller:
     schedule: "27 01,07,13,19 * * *"
 
