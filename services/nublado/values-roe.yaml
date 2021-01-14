@@ -1,4 +1,5 @@
 nublado:
+  pull_secret: 'pull-secret'
   fqdn: rspdev.ddns.net
 
   oauth_provider: 'jwt'
@@ -6,33 +7,16 @@ nublado:
   hub:
     image: 'lsstsqre/sciplat-hub:latest'
 
-  wf:
-    ingress_ui:
-      annotations:
-        nginx.ingress.kubernetes.io/auth-method: GET
-        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Token
-        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net:31337/login"
-        nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:notebook"
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          proxy_set_header X-Forwarded-Proto https;
-          proxy_set_header X-Forwarded-Port 443;
-          proxy_set_header X-Forwarded-Path /workflow;
-          auth_request_set $auth_token $upstream_http_x_auth_request_token;
-          proxy_set_header X-Portal-Authorization "Bearer $auth_token";
-          error_page 403 = "/auth/forbidden?scope=exec:notebook";
-
   lab:
     restrict_nodes: 'true'
     image:
-      experimentals: 0
-      dailies: 0
-      releases: 0
-      weeklies: 1
+      experimentals: 2
+      dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
 
     resources:
       nodejs_max_mem: '6144'
-      mb_per_cpu: 2048
+      mb_per_cpu: 3072
 
   routes:
     soda: '/api/image/soda'
@@ -46,13 +30,30 @@ nublado:
     enabled: true
     path: secret/k8s_operator/roe/nublado
 
+  wf:
+    ingress_ui:
+      annotations:
+        nginx.ingress.kubernetes.io/auth-method: GET
+        nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Token
+        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net/login"
+        nginx.ingress.kubernetes.io/auth-url: "https://rspdev.ddns.net/auth?scope=exec:notebook"
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          proxy_set_header X-Forwarded-Proto https;
+          proxy_set_header X-Forwarded-Port 443;
+          proxy_set_header X-Forwarded-Path /workflow;
+          auth_request_set $auth_token $upstream_http_x_auth_request_token;
+          proxy_set_header X-Portal-Authorization "Bearer $auth_token";
+          error_page 403 = "/auth/forbidden?scope=exec:notebook";
+  prepuller:
+    schedule: "27 01,07,13,19 * * *"
+
   proxy:
     ingress:
       annotations:
-        nginx.ingress.kubernetes.io/auth-request-redirect: $request_uri
+        nginx.ingress.kubernetes.io/auth-method: GET
         nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Token
-        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net:31337/login"
-        nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr-service.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:notebook"
+        nginx.ingress.kubernetes.io/auth-signin: "https://rspdev.ddns.net/login"
+        nginx.ingress.kubernetes.io/auth-url: "https://rspdev.ddns.net/auth?scope=exec:notebook"
         nginx.ingress.kubernetes.io/configuration-snippet: |
           proxy_set_header X-Forwarded-Proto https;
           proxy_set_header X-Forwarded-Port 443;
@@ -68,4 +69,37 @@ nublado:
 
   mountpoints: |
     [
+      { "disabled": true,
+        "mountpoint": "/example -- if it doesn't start with '/' we add it",
+        "fileserver-host": "omit to use Hub settings",
+        "fileserver-export": "defaults to '/exports<mountpoint>'",
+        "mode": "rw or ro, defaults to 'ro'",
+        "options": "mount options, e.g. 'local_lock=all'"
+      },
+      {
+       "mountpoint": "/home",
+        "mode": "rw",
+        "fileserver-host": "10.128.0.49",
+        "fileserver-export": "/exports/home"
+      },
+      {
+        "mountpoint": "/datasets",
+        "fileserver-host": "10.128.0.49",
+        "fileserver-export": "/exports/datasets"
+      },
+      {
+        "mountpoint": "/project",
+        "mode": "rw",
+        "fileserver-host": "10.128.0.49",
+        "fileserver-export": "/exports/project"
+      },
+      {
+        "mountpoint": "/scratch",
+        "mode": "rw",
+        "fileserver-host": "10.128.0.49",
+        "fileserver-export": "/exports/scratch"
+      }
     ]
+pull-secret:
+  enabled: true
+  path: secret/k8s_operator/roe/pull-secret
