@@ -10,8 +10,8 @@ gafaelfawr:
     exp_minutes: 43200  # 30 days
 
   # Use CILogon authentication.
-  cilogon:
-    client_id: "cilogon:/client_id/74e865cd71a3a327096d36081166b739"
+  github:
+    client_id: "github:/client_id/10172b4db1b67ee31620"
     redirect_url: "https://rspdev.ddns.net/login"
     login_params:
       skin: "LSST"
