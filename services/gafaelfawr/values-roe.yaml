@@ -11,7 +11,7 @@ gafaelfawr:
 
   # Use Github authentication.
   github:
-    client_id: "github:/client_id/10172b4db1b67ee31620"
+    client_id: "10172b4db1b67ee31620"
     redirect_url: "https://rspdev.ddns.net/login"
     login_params:
       skin: "LSST"
