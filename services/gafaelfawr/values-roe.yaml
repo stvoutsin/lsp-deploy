@@ -5,16 +5,35 @@ gafaelfawr:
     host: rspdev.ddns.net
   vault_secrets_path: "secret/k8s_operator/roe/gafaelfawr"
 
+  # Do not specify ingress.host because we're using the wildcard virtual host.
+
   # Session length and token expiration (in minutes).
   issuer:
     exp_minutes: 43200  # 30 days
 
-  # Use Github authentication.
   github:
-    client_id: "10172b4db1b67ee31620"
-    redirect_url: "https://rspdev.ddns.net/login"
-    login_params:
-      skin: "LSST"
+    client_id: 10172b4db1b67ee31620
+
+  # Allow access by GitHub team.
+  group_mapping:
+    "exec:admin":
+      - "lsp-uk-dev"
+    "exec:user":
+      - "lsp-uk-dev"
+    "read:workspace":
+      - "lsp-uk-deve"
+    "read:workspace/user":
+      - "lsp-uk-dev"
+    "write:workspace/user":
+      - "lsp-uk-dev"
+    "exec:portal":
+      - "lsp-uk-dev"
+    "exec:notebook":
+      - "lsp-uk-dev"
+    "read:tap":
+      - "lsp-uk-dev"
+    "read:image":
+      - "lsp-uk-dev"
 
 pull-secret:
   enabled: true
