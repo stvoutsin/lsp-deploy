@@ -2,8 +2,6 @@ environment: roe
 
 argo:
   enabled: true
-cachemachine:
-  enabled: false
 cert_issuer:
   enabled: true
 cert_manager:
@@ -27,8 +25,6 @@ mobu:
 ingress_nginx:
   enabled: true
 nublado:
-  enabled: true
-nublado2:
   enabled: true
 obstap:
   enabled: true
