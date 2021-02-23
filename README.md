@@ -1,8 +1,10 @@
-# lsp-deploy
+# Phalanx
 
 This is the repository to store helper scripts and per-environment
 deployment configuration for the services of the Rubin Science
 Platform.
+
+For operational documentation, see [phalanx.lsst.io](https://phalanx.lsst.io/).
 
 ## Background
 
@@ -116,3 +118,9 @@ want to be.  If something happens to the cluster and its resources,
 ArgoCD will let you know, even the action wasn't taken by ArgoCD.
 This makes it useful for reverting back to a LKG (Last-Known-Good)
 state.
+
+## Naming
+
+A phalanx is a SQuaRE deployment (Science Quality and Reliability
+Engineering, the team responsible for the Rubin Science Platform).
+Phalanx is how we ensure that all of our services work together as a unit.
