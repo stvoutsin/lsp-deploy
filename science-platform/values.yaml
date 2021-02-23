@@ -43,9 +43,5 @@ tap:
 vault_secrets_operator:
   enabled: false
 
-<<<<<<< HEAD
 repoURL: https://github.com/stvoutsin/lsp-deploy.git
-=======
-repoURL: https://github.com/lsst-sqre/phalanx.git
->>>>>>> upstream/master
 revision: HEAD
