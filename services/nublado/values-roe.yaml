@@ -70,37 +70,8 @@ nublado:
 
   mountpoints: |
     [
-      { "disabled": true,
-        "mountpoint": "/example -- if it doesn't start with '/' we add it",
-        "fileserver-host": "omit to use Hub settings",
-        "fileserver-export": "defaults to '/exports<mountpoint>'",
-        "mode": "rw or ro, defaults to 'ro'",
-        "options": "mount options, e.g. 'local_lock=all'"
-      },
-      {
-       "mountpoint": "/home",
-        "mode": "rw",
-        "fileserver-host": "10.128.0.49",
-        "fileserver-export": "/exports/home"
-      },
-      {
-        "mountpoint": "/datasets",
-        "fileserver-host": "10.128.0.49",
-        "fileserver-export": "/exports/datasets"
-      },
-      {
-        "mountpoint": "/project",
-        "mode": "rw",
-        "fileserver-host": "10.128.0.49",
-        "fileserver-export": "/exports/project"
-      },
-      {
-        "mountpoint": "/scratch",
-        "mode": "rw",
-        "fileserver-host": "10.128.0.49",
-        "fileserver-export": "/exports/scratch"
-      }
     ]
+
 pull-secret:
   enabled: true
   path: secret/k8s_operator/roe/pull-secret
