@@ -1,8 +1,9 @@
 firefly:
   pull_secret: 'pull-secret'
+  replicaCount: 2
   image:
-    tag: "1.1.1"
-
+    tag: "rc-2.1.0-2"
+    
   ingress:
     host: 'rspdev.ddns.net'
     annotations:
@@ -17,12 +18,31 @@ firefly:
         proxy_set_header X-Forwarded-Path /portal/app;
   max_jvm_size: "7G"
 
+
+  tolerations:
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: portal
+
   resources:
     limits:
       memory: 8Gi
-
+      
   secrets:
+    enabled: false
+
+  vault_secrets:
     enabled: true
+    path: 'secret/k8s_operator/lsst-lsp-stable.ncsa.illinois.edu/portal'
+
+  securityContext:
+    runAsUser: 101
+    runAsGroup: 102
+
+  volumes:
+    firefly_workarea_hostpath: /sui/firefly/workarea
+    firefly_config_hostpath: /sui/firefly/config
 
   redis:
     resources:
