@@ -34,7 +34,7 @@ firefly:
 
   vault_secrets:
     enabled: true
-    path: 'secret/k8s_operator/lsst-lsp-stable.ncsa.illinois.edu/portal'
+    path: 'secret/k8s_operator/roe/portal'
 
   securityContext:
     runAsUser: 101
