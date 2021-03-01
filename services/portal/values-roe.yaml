@@ -40,10 +40,6 @@ firefly:
     runAsUser: 101
     runAsGroup: 102
 
-  volumes:
-    firefly_workarea_hostpath: /sui/firefly/workarea
-    firefly_config_hostpath: /sui/firefly/config
-
   redis:
     resources:
       limits:
