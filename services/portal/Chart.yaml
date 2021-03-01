@@ -4,7 +4,7 @@ version: 1.0.0
 dependencies:
 - name: firefly
   version: ">=0.1.0"
-  repository: https://lsst-sqre.github.io/charts/
+  repository: https://github.com/stvoutsin/charts
 - name: pull-secret
   version: 0.1.2
   repository: https://lsst-sqre.github.io/charts/
