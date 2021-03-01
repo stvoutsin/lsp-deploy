@@ -4,7 +4,7 @@ version: 1.0.0
 dependencies:
 - name: argo-cd
   version: 2.14.2
-  repository: https://argoproj.github.io/argo-helm
+  repository: https://stvoutsin.github.io/charts/
 - name: pull-secret
   version: 0.1.2
-  repository: https://github.com/stvoutsin/charts
+  repository: https://stvoutsin.github.io/charts/

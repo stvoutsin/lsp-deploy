@@ -19,7 +19,7 @@ argo-cd:
 
     config:
       helm.repositories: |
-        - url: https://github.com/stvoutsin/charts
+        - url: https://stvoutsin.github.io/charts/
           name: lsst-sqre
         - url: https://ricoberger.github.io/helm-charts/
           name: ricoberger
