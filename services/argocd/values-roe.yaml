@@ -18,9 +18,8 @@ argo-cd:
       - "--insecure=true"
 
     config:
-      url: https://rsp.lsst.ac.uk/argo-cd
       helm.repositories: |
-        - url: https://lsst-sqre.github.io/charts/
+        - url: https://github.com/lsst-sqre/charts
           name: lsst-sqre
         - url: https://ricoberger.github.io/helm-charts/
           name: ricoberger
@@ -28,20 +27,9 @@ argo-cd:
           name: ingress-nginx
         - url: https://charts.helm.sh/stable
           name: stable
-
-    rbacConfig:
-      policy.csv: |
-        g, lsst-sqre:square, role:admin
-
-  configs:
-    secret:
-      createSecret: false
-
-vault_secret:
-  enabled: true
-  path: secret/k8s_operator/roe/argocd
-
 pull-secret:
   enabled: true
   path: secret/k8s_operator/roe/pull-secret
+
+
 
