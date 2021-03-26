@@ -1,5 +1,9 @@
 {
   "extends": [
-    "config:base", "schedule:weekly"
+    "config:base"
+  ],
+  "prConcurrentLimit": 5,
+  "schedule": [
+    "before 6am on Monday"
   ]
 }

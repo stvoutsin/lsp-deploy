@@ -1,4 +1,6 @@
 environment: squash-sandbox
+fqdn: squash-sandbox.lsst.codes
+vault_path_prefix: secret/k8s_operator/squash-sandbox.lsst.codes
 
 argo:
   enabled: false
@@ -21,6 +23,8 @@ landing_page:
 logging:
   enabled: false
 mobu:
+  enabled: false
+moneypenny:
   enabled: false
 ingress_nginx:
   enabled: true

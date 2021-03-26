@@ -3,6 +3,7 @@ nublado:
   fqdn: kueyen-lsp.lsst.codes
   debug: 'true'
   oauth_provider: 'jwt'
+  gafaelfawr_secrets_path: 'secret/k8s_operator/kueyen-lsp.lsst.codes/gafaelfawr'
 
   hub:
     image: 'lsstsqre/sciplat-hub:latest'
@@ -35,7 +36,6 @@ nublado:
       releases: 1
       cachefile: '/home/jovyan/repo-cache.json'
       repo_name: 'kueyen-sal-sciplat-lab'
-      repo_username: 'sqreadmin'
 
     resources:
       nodejs_max_mem: '6144'

@@ -3,6 +3,7 @@ nublado:
   fqdn: data.lsst.cloud
 
   oauth_provider: 'jwt'
+  gafaelfawr_secrets_path: 'secret/k8s_operator/data.lsst.cloud/gafaelfawr'
 
   hub:
     image: 'lsstsqre/sciplat-hub:latest'
@@ -13,7 +14,6 @@ nublado:
       experimentals: 2
       dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
-      repo_username: 'sqrereadonly'
 
     resources:
       nodejs_max_mem: '6144'

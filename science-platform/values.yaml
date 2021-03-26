@@ -24,6 +24,8 @@ logging:
   enabled: false
 mobu:
   enabled: false
+moneypenny:
+  enabled: false
 nublado:
   enabled: false
 nublado2:
@@ -45,3 +47,4 @@ vault_secrets_operator:
 
 repoURL: https://github.com/stvoutsin/lsp-deploy.git
 revision: HEAD
+onepassword_uuid: "dg5afgiadsffeklfr6jykqymeu"

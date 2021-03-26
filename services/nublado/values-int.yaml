@@ -3,6 +3,7 @@ nublado:
   fqdn: lsst-lsp-int.ncsa.illinois.edu
 
   oauth_provider: 'jwt'
+  gafaelfawr_secrets_path: 'secret/k8s_operator/lsst-lsp-int.ncsa.illinois.edu/gafaelfawr'
 
   lab:
     restrict_nodes: 'true'
@@ -10,7 +11,6 @@ nublado:
       experimentals: 2
       dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
-      repo_username: 'sqreadmin'
 
     resources:
       nodejs_max_mem: '6144'
@@ -20,10 +20,10 @@ nublado:
 
   hub:
     persistent_home: false
-    image: 'lsstsqre/sciplat-hub:0.32.6'
+    image: 'lsstsqre/sciplat-hub:0.35.4'
 
   wf:
-    image: 'lsstsqre/wfdispatcher:0.4.1.4'
+    image: 'lsstsqre/wfdispatcher:0.4.4-pre3'
     ingress_ui:
       annotations:
         nginx.ingress.kubernetes.io/auth-method: GET
@@ -39,7 +39,7 @@ nublado:
           error_page 403 = "/auth/forbidden?scope=exec:notebook";
 
   prepuller:
-    image: 'lsstsqre/prepuller:0.8.8'
+    image: 'lsstsqre/prepuller:0.9.4'
     schedule: "27 01,07,13,19 * * *"
 
   routes:

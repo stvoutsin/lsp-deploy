@@ -3,6 +3,7 @@ nublado:
   fqdn: red-five.lsst.codes
 
   oauth_provider: 'jwt'
+  gafaelfawr_secrets_path: 'secret/k8s_operator/red-five.lsst.codes/gafaelfawr'
 
   hub:
     image: 'lsstsqre/sciplat-hub:latest'
@@ -28,7 +29,6 @@ nublado:
       experimentals: 2
       dailies: 2
       cachefile: '/home/jovyan/repo-cache.json'
-      repo_username: 'sqreadmin'
 
     resources:
       nodejs_max_mem: '6144'

@@ -1,6 +1,10 @@
 environment: idfprod
+fqdn: data.lsst.cloud
+vault_path_prefix: secret/k8s_operator/data.lsst.codes
 
 argo:
+  enabled: true
+cachemachine:
   enabled: true
 cert_issuer:
   enabled: true
@@ -22,9 +26,13 @@ logging:
   enabled: false
 mobu:
   enabled: true
+moneypenny:
+  enabled: true
 ingress_nginx:
   enabled: true
 nublado:
+  enabled: true
+nublado2:
   enabled: true
 obstap:
   enabled: true
