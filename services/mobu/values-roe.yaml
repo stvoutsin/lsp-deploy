@@ -2,8 +2,8 @@ mobu:
   pull_secret: 'pull-secret'
   gafaelfawr_secrets_path: "secret/k8s_operator/roe/gafaelfawr"
   mobu_secrets_path: "secret/k8s_operator/roe/mobu"
-  environment_url: "https://rspdev.ddns.net"
-  host: "rspdev.ddns.net"
+  environment_url: "https://rsp.lsst.ac.uk"
+  host: "rsp.lsst.ac.uk"
 
   image:
     tag: master

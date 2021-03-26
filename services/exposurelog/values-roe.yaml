@@ -10,7 +10,7 @@ exposurelog:
     #   kubernetes.io/ingress.class: nginx
     #   kubernetes.io/tls-acme: "true"
     hosts:
-      - host: rspdev.ddns.net
+      - host: rsp.lsst.ac.uk
         paths:
           - /exposurelog
     tls: []
