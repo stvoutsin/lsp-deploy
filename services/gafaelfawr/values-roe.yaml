@@ -13,7 +13,7 @@ gafaelfawr:
     client_id: 10172b4db1b67ee31620
 
   config:
-    host: "data.lsst.cloud"
+    host: "rsp.lsst.ac.uk"
 
     github:
       clientId: "65b6333a066375091548"
