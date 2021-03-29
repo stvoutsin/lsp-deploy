@@ -16,7 +16,7 @@ gafaelfawr:
     host: "rsp.lsst.ac.uk"
 
     github:
-      clientId: "65b6333a066375091548"
+      clientId: "10172b4db1b67ee31620"
 
     # Allow access by GitHub team.
     groupMapping:
@@ -29,6 +29,7 @@ gafaelfawr:
       "read:workspace/user":
         - "lsp-uk-dev"
       "write:workspace/user":
+        - "lsp-uk-dev"
       "exec:portal":
         - "lsp-uk-dev"
       "exec:user":
