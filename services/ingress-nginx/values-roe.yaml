@@ -9,6 +9,7 @@ ingress-nginx:
       use-forwarded-headers: "true"
     service:
       externalTrafficPolicy: Local
+      loadBalancerIP: "192.41.108.23"
     podLabels:
       hub.jupyter.org/network-access-proxy-http: "true"
 
@@ -18,4 +19,3 @@ vault_certificate:
 pull-secret:
   enabled: true
   path: secret/k8s_operator/roe/pull-secret
-
