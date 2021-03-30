@@ -10,7 +10,7 @@ ingress-nginx:
       use-forwarded-headers: "true"
     service:
       externalTrafficPolicy: Local
-      loadBalancerIP: "140.252.34.101"
+      loadBalancerIP: "192.41.108.23"
     podLabels:
       hub.jupyter.org/network-access-proxy-http: "true"
     extraArgs:
