@@ -1,3 +1,4 @@
+
 ingress-nginx:
   controller:
     config:
@@ -8,14 +9,20 @@ ingress-nginx:
       ssl-redirect: "true"
       use-forwarded-headers: "true"
     service:
-      externalTrafficPolicy: Local
-      loadBalancerIP: "192.41.108.23"
+      type: ClusterIP
+    hostNetwork: true
+    dnsPolicy: ClusterFirstWithHostNet
+    admissionWebhooks:
+      enabled: false
+    extraArgs:
+      default-ssl-certificate: ingress-nginx/ingress-certificate
     podLabels:
       hub.jupyter.org/network-access-proxy-http: "true"
-
-vault_certificate:
-  enabled: false
 
 pull-secret:
   enabled: true
   path: secret/k8s_operator/roe/pull-secret
+
+vault_certificate:
+  enabled: true
+  path: secret/k8s_operator/roe/ingress-nginx
