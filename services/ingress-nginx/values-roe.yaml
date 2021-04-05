@@ -12,8 +12,6 @@ ingress-nginx:
     dnsPolicy: ClusterFirstWithHostNet
     hostNetwork: true
     nodeName: lsp-dev-master
-    admissionWebhooks:
-      enabled: false
     extraArgs:
       default-ssl-certificate: ingress-nginx/ingress-certificate
     podLabels:
