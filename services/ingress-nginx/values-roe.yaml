@@ -11,7 +11,15 @@ ingress-nginx:
       type: ClusterIP
     dnsPolicy: ClusterFirstWithHostNet
     hostNetwork: true
-    nodeName: lsp-dev-master
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-role.kubernetes.io/etcd
+                  operator: Exists
+
+    
     extraArgs:
       default-ssl-certificate: ingress-nginx/ingress-certificate
     podLabels:
