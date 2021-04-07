@@ -1,7 +1,8 @@
 firefly:
   pull_secret: 'pull-secret'
   image:
-    tag: "rc-2.1.0-2"
+    # tag: "rc-2.1.0-2"
+    tag: "latest"
     
   ingress:
     host: 'rsp.lsst.ac.uk'
