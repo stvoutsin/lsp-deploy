@@ -9,9 +9,6 @@ gafaelfawr:
   issuer:
     exp_minutes: 43200  # 30 days
 
-  github:
-    client_id: 10172b4db1b67ee31620
-
   config:
     host: "rsp.lsst.ac.uk"
 
