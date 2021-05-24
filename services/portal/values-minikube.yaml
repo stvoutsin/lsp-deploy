@@ -1,7 +1,5 @@
 firefly:
   pull_secret: 'pull-secret'
-  image:
-    tag: "1.1.1"
 
   ingress:
     host: "minikube.lsst.codes"
@@ -23,7 +21,11 @@ firefly:
       memory: 8Gi
 
   secrets:
+    enabled: false
+
+  vault_secrets:
     enabled: true
+    path: secret/k8s_operator/minikube.lsst.codes/portal
 
   redis:
     resources:

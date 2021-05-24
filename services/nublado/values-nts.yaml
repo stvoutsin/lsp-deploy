@@ -90,16 +90,16 @@ nublado:
         "options": "mount options, e.g. 'local_lock=all'"
       },
       {
-       "mountpoint": "/home",
-        "mode": "rw",
-        "fileserver-host": "lsst-l1-cl-arctl.ncsa.illinois.edu",
-        "fileserver-export": "/jhome"
-      },
-      {
         "disabled": true,
         "mountpoint": "/datasets",
         "fileserver-host": "lsst-l1-cl-arctl.ncsa.illinois.edu",
         "fileserver-export": "/user/precursor_data/datasets"
+      },
+      {
+       "mountpoint": "/home",
+        "mode": "rw",
+        "fileserver-host": "lsst-l1-cl-arctl.ncsa.illinois.edu",
+        "fileserver-export": "/jhome"
       },
       {
         "mountpoint": "/project",
@@ -114,10 +114,34 @@ nublado:
         "fileserver-export": "/scratch"
       },
       {
+        "mountpoint": "/repo",
+        "mode": "rw",
+        "fileserver-host": "lsst-l1-cl-arctl.ncsa.illinois.edu",
+        "fileserver-export": "/repo"
+      },
+      {
+        "mountpoint": "/data/lsstdata/NTS",
+        "mode": "ro",
+        "fileserver-host": "lsst-l1-cl-arctl.ncsa.illinois.edu",
+        "fileserver-export": "/data/lsstdata/NTS"
+      },
+      {
         "mountpoint": "/lsstdata/offline/teststand",
         "mode": "ro",
         "fileserver-host": "lsst-nfs.ncsa.illinois.edu",
         "fileserver-export": "/offline/teststand"
+      },
+      {
+        "mountpoint": "/lsstdata/offline/instrument",
+        "mode": "ro",
+        "fileserver-host": "lsst-nfs.ncsa.illinois.edu",
+        "fileserver-export": "/offline/instrument"
+      },
+      {
+        "mountpoint": "/readonly/repo",
+        "mode": "ro",
+        "fileserver-host": "lsst-nfs.ncsa.illinois.edu",
+        "fileserver-export": "/user/repo"
       }
     ]
 

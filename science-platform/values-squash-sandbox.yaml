@@ -35,8 +35,10 @@ obstap:
 portal:
   enabled: false
 postgres:
-  enabled: false
+  enabled: true
 rancher_external_ip_webhook:
+  enabled: true
+squareone:
   enabled: false
 squash_api:
   enabled: true
