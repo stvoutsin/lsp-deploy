@@ -5,10 +5,11 @@ gafaelfawr:
     host: "rsp.lsst.ac.uk"
   vaultSecretsPath: "secret/k8s_operator/roe/gafaelfawr"
 
-  # Session length and token expiration (in minutes).
-  issuer:
-    exp_minutes: 43200  # 30 days
-
+  redis:
+    persistence:
+      enabled: false
+      
+ 
   config:
     host: "rsp.lsst.ac.uk"
     databaseUrl: "postgresql://gafaelfawr@localhost/gafaelfawr"
@@ -36,9 +37,7 @@ gafaelfawr:
       "read:image":
         - "lsp-uk-dev"
 
-    initialAdmins:
-      - "stvoutsin"
-      
+
 
 pull-secret:
   enabled: true
