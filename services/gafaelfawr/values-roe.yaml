@@ -20,7 +20,7 @@ gafaelfawr:
     groupMapping:
       "exec:admin":
         - "lsp-uk-dev"
-      "exec:notebook":
+      "exec:notebook":`
         - "lsp-uk-dev"
       "read:workspace":
         - "lsp-uk-dev"
@@ -37,7 +37,8 @@ gafaelfawr:
       "read:image":
         - "lsp-uk-dev"
 
-
+    initialAdmins:
+      - "stvoutsin"
 
 pull-secret:
   enabled: true
