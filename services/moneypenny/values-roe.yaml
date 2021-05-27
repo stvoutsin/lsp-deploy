@@ -1,6 +1,6 @@
  
 moneypenny:
-  host: "tucson-teststand.lsst.codes"
+  host: "rsp.lsst.ac.uk"
 
   ingress:
     enabled: true
@@ -12,7 +12,7 @@ moneypenny:
 
   vault_secrets:
     enabled: true
-    path: "secret/k8s_operator/tucson-teststand.lsst.codes/pull-secret"
+    path: "secret/k8s_operator/roe/pull-secret"
 
   orders: |
     commission:

@@ -156,7 +156,7 @@ nublado:
               "cpu_quota": "integer, namespace quota CPU limit"
           }
         },
-        { "group": "lsst_int_rspdev"
+        { "group": "lsst_int_lspdev"
         }
     ]
 
