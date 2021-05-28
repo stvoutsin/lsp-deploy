@@ -16,7 +16,7 @@ gafaelfawr:
 
   config:
     host: "data.lsst.cloud"
-    databaseUrl: "postgresql://gafaelfawr@localhost/gafaelfawr"
+    databaseUrl: "postgresql://gafaelfawr@postgres.postgres/gafaelfawr"
 
     github:
       clientId: "65b6333a066375091548"
