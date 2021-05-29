@@ -10,7 +10,9 @@ postgres:
     user: 'gafaelfawr'
     db: 'gafaelfawr'
   postgres_storage_class: 'standard'
-
+  image:
+    tag: '0.0.3'
+    
 pull-secret:
   enabled: true
   path: secret/k8s_operator/roe/pull-secret
