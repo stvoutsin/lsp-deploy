@@ -10,7 +10,6 @@ postgres:
     user: 'gafaelfawr'
     db: 'gafaelfawr'
   postgres_storage_class: 'standard'
-  volume_name: 'postgres-data-volume'
 
   image:
     tag: '0.0.3'
