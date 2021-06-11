@@ -21,6 +21,7 @@ nublado:
           auth_request_set $auth_token $upstream_http_x_auth_request_token;
           proxy_set_header X-Portal-Authorization "Bearer $auth_token";
           error_page 403 = "/auth/forbidden?scope=exec:notebook";
+
   lab:
     cull_timeout: 604800
     restrict_nodes: 'true'
@@ -148,6 +149,7 @@ nublado:
         "fileserver-export": "/lsstdata/base/comcam"
       }
     ]
+
   signing_certificate: |
     -----BEGIN PUBLIC KEY-----
     MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAte5sbdD3g2x+TeKn7Zil
@@ -158,6 +160,7 @@ nublado:
     cHp1Els9aiHGk9ERSguaOVHJY3NKqCSz3luLFV98QYjG10nepo+HwxaN/U5w60q6
     jQIDAQAB
     -----END PUBLIC KEY-----
+
 pull-secret:
   enabled: true
   path: secret/k8s_operator/summit-lsp.lsst.codes/pull-secret
