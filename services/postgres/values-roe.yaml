@@ -9,10 +9,9 @@ postgres:
   gafaelfawr_db:
     user: 'gafaelfawr'
     db: 'gafaelfawr'
-  postgres_storage_class: 'standard'
-
   image:
-    tag: '0.0.3'
+    tag: '0.0.5'
+  postgres_storage_class: 'standard'
     
 pull-secret:
   enabled: true
