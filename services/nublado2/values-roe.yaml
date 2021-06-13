@@ -1,28 +1,28 @@
-nublado2:
+ nublado2:
   jupyterhub:
     debug:
       enabled: true
+
+    hub:
+      base_url: "/nb2"
+
+    singleuser:
+      storage:
+        type: none
 
     ingress:
       hosts: ["rsp.lsst.ac.uk"]
       annotations:
         nginx.ingress.kubernetes.io/auth-signin: "https://rsp.lsst.ac.uk/login"
-        nginx.ingress.kubernetes.io/auth-url: "http://gafaelfawr.gafaelfawr.svc.cluster.local:8080/auth?scope=exec:notebook&notebook=true"
-
-    hub:
-      baseUrl: "/nb"
 
   config:
-    base_url: "https://rsp.lsst.ac.uk"
-    butler_secret_path: "secret/k8s_operator/roe/butler-secret"
+    base_url: "rsp.lsst.ac.uk/"
+
     volume_mounts:
-      - name: datasets
-        mountPath: /datasets
+      - name: data
+        mountPath: /data
       - name: home
         mountPath: /home
-      - name: project
-        mountPath: /project
-      - name: scratch
-        mountPath: /scratch
 
   vault_secret_path: "secret/k8s_operator/roe/nublado2"
+  gafaelfawr_secret_path: "secret/k8s_operator/roe/gafaelfawr"
