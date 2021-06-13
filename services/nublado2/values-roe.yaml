@@ -18,9 +18,10 @@
   config:
     base_url: "rsp.lsst.ac.uk/"
 
+    volumes:
+      - name: home
+        emptyDir: {}
     volume_mounts:
-      - name: data
-        mountPath: /data
       - name: home
         mountPath: /home
 
