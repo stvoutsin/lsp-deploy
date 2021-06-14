@@ -3,9 +3,6 @@
     debug:
       enabled: true
 
-    hub:
-      base_url: "/nb2"
-
     singleuser:
       storage:
         type: none
