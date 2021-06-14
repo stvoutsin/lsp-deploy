@@ -3,10 +3,6 @@
     debug:
       enabled: true
 
-    singleuser:
-      storage:
-        type: none
-
     ingress:
       hosts: ["rsp.lsst.ac.uk"]
       annotations:
