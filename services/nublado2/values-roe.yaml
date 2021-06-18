@@ -9,7 +9,7 @@
         nginx.ingress.kubernetes.io/auth-signin: "https://rsp.lsst.ac.uk/login"
 
   config:
-    base_url: "rsp.lsst.ac.uk"
+    base_url: "https://rsp.lsst.ac.uk"
 
     volumes:
       - name: home
