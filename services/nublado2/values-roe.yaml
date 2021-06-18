@@ -10,6 +10,7 @@
 
   config:
     base_url: "https://rsp.lsst.ac.uk"
+    butler_secret_path: "secret/k8s_operator/roe/butler-secret"
 
     volumes:
       - name: home
